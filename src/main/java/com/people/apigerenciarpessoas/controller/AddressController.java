@@ -37,7 +37,7 @@ public class AddressController {
         return ResponseEntity.status(HttpStatus.CREATED).body(addressService.registerAddress(addressRequest));
     }
 
-    @Operation(summary = "Buscar todos os endereços da pessoa por id", method = "GET")
+    @Operation(summary = "Buscar todos os endereços da pessoa por idPerson", method = "GET")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK:Busca realizado com sucesso"),
             @ApiResponse(responseCode = "400", description = "Bad Request: Parametros inválidos"),
@@ -46,9 +46,9 @@ public class AddressController {
             @ApiResponse(responseCode = "422", description = "Unprocessable Entity: Dados de requisição inválida"),
             @ApiResponse(responseCode = "500", description = "Internal Server Error: Erro interno do servidor"),
     })
-    @GetMapping("/list-address/{idperson}")
-    public ResponseEntity<List<AddressResponse>> getAllAddress(@PathVariable Long idperson) {
-        return ResponseEntity.ok(addressService.getAllAddress(idperson));
+    @GetMapping("/list-address/{idPerson}")
+    public ResponseEntity<List<AddressResponse>> getAllAddress(@PathVariable Long idPerson) {
+        return ResponseEntity.ok(addressService.getAllAddress(idPerson));
     }
 
     @Operation(summary = "Buscar um endereço por id", method = "GET")

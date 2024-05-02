@@ -28,7 +28,7 @@ public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPeople;
+    private Long idPerson;
 
     @Size(max = 100)
     @NotBlank
