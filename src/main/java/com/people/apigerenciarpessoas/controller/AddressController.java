@@ -1,5 +1,7 @@
 package com.people.apigerenciarpessoas.controller;
 
+import com.people.apigerenciarpessoas.models.dto.request.AddressRequest;
+import com.people.apigerenciarpessoas.models.dto.response.AddressResponse;
 import com.people.apigerenciarpessoas.service.AddressService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
