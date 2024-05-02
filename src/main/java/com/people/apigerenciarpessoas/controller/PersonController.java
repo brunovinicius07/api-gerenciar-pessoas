@@ -1,5 +1,7 @@
 package com.people.apigerenciarpessoas.controller;
 
+import com.people.apigerenciarpessoas.models.dto.request.PersonRequest;
+import com.people.apigerenciarpessoas.models.dto.response.PersonResponse;
 import com.people.apigerenciarpessoas.service.PersonService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -89,6 +91,6 @@ public class PersonController {
     })
     @DeleteMapping("/{idPerson}")
     public ResponseEntity<String> deletePeople(@PathVariable Long idPerson) {
-        return ResponseEntity.ok(idPerson.deletePeople(idPerson));
+        return ResponseEntity.ok(personService.deletePeople(idPerson));
     }
 }
