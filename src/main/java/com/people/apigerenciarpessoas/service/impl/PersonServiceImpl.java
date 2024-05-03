@@ -4,16 +4,20 @@ import com.people.apigerenciarpessoas.exception.person.PersonNotFoundException;
 import com.people.apigerenciarpessoas.exception.person.PersonPresentException;
 import com.people.apigerenciarpessoas.models.dto.request.PersonRequest;
 import com.people.apigerenciarpessoas.models.dto.response.PersonResponse;
+import com.people.apigerenciarpessoas.models.entity.Address;
 import com.people.apigerenciarpessoas.models.entity.Person;
 import com.people.apigerenciarpessoas.models.mapper.PersonMapper;
+import com.people.apigerenciarpessoas.repository.AddressRepository;
 import com.people.apigerenciarpessoas.repository.PersonRepository;
 import com.people.apigerenciarpessoas.service.PersonService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class PersonServiceImpl implements PersonService {
 
@@ -21,10 +25,7 @@ public class PersonServiceImpl implements PersonService {
 
     public final PersonMapper personMapper;
 
-    public PersonServiceImpl(PersonRepository personRepository, PersonMapper personMapper) {
-        this.personRepository = personRepository;
-        this.personMapper = personMapper;
-    }
+    public final AddressRepository addressRepository;
 
     @Override
     @Transactional(readOnly = false)
@@ -87,8 +88,9 @@ public class PersonServiceImpl implements PersonService {
     @Transactional(readOnly = false)
     public String deletePeople(Long idPerson) {
         Person person = validatePerson(idPerson);
-
+        List<Address> addresses = addressRepository.findAllAddressByPersonIdPerson(idPerson);
         if (person != null){
+            addressRepository.deleteAll(addresses);
             personRepository.delete(person);
             return "Pessoa com id " + idPerson + " deletada com sucesso!";
         }

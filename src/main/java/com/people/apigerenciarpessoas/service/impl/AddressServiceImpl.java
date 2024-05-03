@@ -101,7 +101,7 @@ public class AddressServiceImpl implements AddressService {
 
         if (address != null){
             addressRepository.delete(address);
-            return "Endereço deletedo com sucesso!";
+            return "Endereço com o ID " + idAddress + " excluído com sucesso!";
         }
         return "Erro ao deletar endereço!";
     }

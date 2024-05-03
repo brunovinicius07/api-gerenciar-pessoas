@@ -10,11 +10,9 @@ import org.mapstruct.Mapping;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring")
 public interface PersonMapper {
-
 
     Person toPerson(PersonRequest personRequest);
 
@@ -30,6 +28,7 @@ public interface PersonMapper {
                     addressResponses.add(
                             AddressResponse.builder()
                                     .idAddress(address.getIdAddress())
+                                    .idPeople(address.getPerson().getIdPerson())
                                     .city(address.getCity())
                                     .zipCode(address.getZipCode())
                                     .mainAddress(address.isMainAddress())

@@ -11,7 +11,8 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface AddressMapper {
 
-    @Mapping(source = "getIdPerson", target = "person.idPerson")
+    @Mapping(source = "idPerson", target = "person.idPerson")
+    @Mapping(source = "state", target = "state")
     Address toAddress(AddressRequest addressRequest);
 
     @Mapping(source = "person.idPerson", target = "idPeople")

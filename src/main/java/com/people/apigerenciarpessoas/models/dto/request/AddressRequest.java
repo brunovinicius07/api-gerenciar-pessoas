@@ -15,6 +15,8 @@ public class AddressRequest {
 
     private String number;
 
+    private String state;
+
     private String city;
 
     private boolean mainAddress;
