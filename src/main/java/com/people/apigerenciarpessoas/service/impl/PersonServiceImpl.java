@@ -9,6 +9,7 @@ import com.people.apigerenciarpessoas.models.mapper.PersonMapper;
 import com.people.apigerenciarpessoas.repository.PersonRepository;
 import com.people.apigerenciarpessoas.service.PersonService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -70,6 +71,16 @@ public class PersonServiceImpl implements PersonService {
         person.setCpf(personRequest.getCpf());
 
         return personMapper.toPersonResponse(personRepository.save(person));
+    }
+
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+    public void updateMainAddress(Long idPerson, boolean mainAddress) {
+        Person person = validatePerson(idPerson);
+
+        if (mainAddress) {
+            person.getAddresses().forEach(a -> a.setMainAddress(false));
+            this.personRepository.save(person);
+        }
     }
 
     @Override

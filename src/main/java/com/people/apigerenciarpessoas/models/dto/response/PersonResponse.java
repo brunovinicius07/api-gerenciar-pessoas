@@ -20,5 +20,5 @@ public class PersonResponse {
 
     private String cpf;
 
-    private List<Long> idsAddress;
+    private List<AddressResponse> address;
 }

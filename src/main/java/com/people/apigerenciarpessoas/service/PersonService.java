@@ -19,5 +19,7 @@ public interface PersonService {
 
     PersonResponse updatePerson(Long idPerson, PersonRequest personRequest);
 
+    void updateMainAddress(Long idPerson, boolean mainAddress);
+
     String deletePeople(Long idPerson);
 }

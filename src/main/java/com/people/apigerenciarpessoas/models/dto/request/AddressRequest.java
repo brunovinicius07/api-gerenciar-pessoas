@@ -19,5 +19,5 @@ public class AddressRequest {
 
     private boolean mainAddress;
 
-    private Long idPeople;
+    private Long idPerson;
 }

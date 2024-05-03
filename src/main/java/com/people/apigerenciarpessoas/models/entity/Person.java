@@ -38,7 +38,7 @@ public class Person implements Serializable {
     @NotNull
     private LocalDate birthDate;
 
-    @Size(max = 11)
+    @Size(max = 11 , min = 11 , message = "Digite apenas numeros, não utilize caracteres!")
     @NotNull
     private String cpf;
 
