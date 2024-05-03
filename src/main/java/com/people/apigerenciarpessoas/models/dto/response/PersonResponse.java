@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -21,5 +20,5 @@ public class PersonResponse {
 
     private String cpf;
 
-    private List<Long> idsAddress = new ArrayList<>();
+    private List<Long> idsAddress;
 }

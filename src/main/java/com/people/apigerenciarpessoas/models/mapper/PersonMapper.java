@@ -16,7 +16,7 @@ public interface PersonMapper {
 
     Person toPerson(PersonRequest personRequest);
 
-    @Mapping(target = "idsAddress", expression = "java(mapAddress(people.getAddresses()))")
+    @Mapping(target = "idsAddress", expression = "java(mapAddress(person.getAddresses()))")
     PersonResponse toPersonResponse(Person person);
 
     default List<Long> mapAddress(List<Address> addressList){
@@ -28,4 +28,6 @@ public interface PersonMapper {
             return new ArrayList<>();
         }
     }
+
+    List<PersonResponse> toListPersonResponse(List<Person> people);
 }
