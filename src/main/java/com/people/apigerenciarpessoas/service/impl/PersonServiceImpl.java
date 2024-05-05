@@ -92,7 +92,7 @@ public class PersonServiceImpl implements PersonService {
         if (person != null){
             addressRepository.deleteAll(addresses);
             personRepository.delete(person);
-            return "Pessoa com id " + idPerson + " deletada com sucesso!";
+            return "Pessoa com id " + idPerson + " excluído com sucesso!";
         }
         return "Erro ao deletar!";
     }
