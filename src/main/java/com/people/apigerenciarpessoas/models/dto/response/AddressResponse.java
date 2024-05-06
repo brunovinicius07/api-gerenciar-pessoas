@@ -17,11 +17,11 @@ public class AddressResponse {
 
     private String zipCode;
 
-    private String state;
-
     private String number;
 
     private String city;
+
+    private String state;
 
     private boolean mainAddress;
 

@@ -13,6 +13,8 @@ public interface AddressService {
 
     List<AddressResponse> getAllAddress(Long idperson);
 
+    List<Address> validateListAddress(Long idPeople);
+
     AddressResponse getAddressById(Long idAddress);
 
     Address validateAddress(Long cdAddress);

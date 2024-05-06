@@ -61,6 +61,15 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     @Transactional(readOnly = true)
+    public List<Address> validateListAddress(Long idPeople) {
+        List<Address> addresList = addressRepository.findAllAddressByPersonIdPerson(idPeople);
+        if (addresList.isEmpty())throw new AddressNotFoundException();
+
+        return addresList;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public AddressResponse getAddressById(Long idAddress) {
         return addressMapper.toAddressResponse(validateAddress(idAddress));
     }
