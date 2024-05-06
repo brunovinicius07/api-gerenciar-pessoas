@@ -1,4 +1,4 @@
-package com.people.apigerenciarpessoas.impl;
+package com.people.apigerenciarpessoas.service.impl;
 
 import com.people.apigerenciarpessoas.models.dto.request.PersonRequest;
 import com.people.apigerenciarpessoas.models.dto.response.AddressResponse;

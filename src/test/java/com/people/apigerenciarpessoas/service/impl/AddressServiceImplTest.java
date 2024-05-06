@@ -1,4 +1,4 @@
-package com.people.apigerenciarpessoas.impl;
+package com.people.apigerenciarpessoas.service.impl;
 
 import com.people.apigerenciarpessoas.exception.address.AddressNotFoundException;
 import com.people.apigerenciarpessoas.models.dto.request.AddressRequest;
@@ -270,14 +270,12 @@ class AddressServiceImplTest {
 
     @Test
     void whenDeleteWithAlertException() {
-        when(addressRepository.findById(anyLong())).thenThrow(new RuntimeException("Endereço com id "
-                + ID_ADDRESS
-                + " não cadastrado!"));
+        when(addressRepository.findById(anyLong())).thenThrow(new RuntimeException("Erro ao deletar endereço!"));
 
         try {
             addressService.deleteAddress(ID_ADDRESS);
         } catch (Exception ex) {
-            assertEquals("Endereço com id " + ID_ADDRESS + " não cadastrado!", ex.getMessage());
+            assertEquals("Erro ao deletar endereço!", ex.getMessage());
         }
     }
 

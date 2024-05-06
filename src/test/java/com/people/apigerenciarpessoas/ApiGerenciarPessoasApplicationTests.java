@@ -8,6 +8,7 @@ class ApiGerenciarPessoasApplicationTests {
 
     @Test
     void contextLoads() {
+        ApiGerenciarPessoasApplication.main(new String[]{});
     }
 
 }
