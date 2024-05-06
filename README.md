@@ -2,7 +2,7 @@
 
 #### ✒️author- [Bruno Tavares](https://www.linkedin.com/in/brunoviniciusdev/)
 
-
+![diagrama-de-classes](https://github.com/brunovinicius07/api-gerenciar-pessoas/blob/main/src/main/resources/diagrama%20UML.png)
 
 ### ⚙️Features Implemented :
 
